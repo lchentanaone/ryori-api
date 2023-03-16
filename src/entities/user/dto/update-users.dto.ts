@@ -7,11 +7,18 @@ export class UpdateUserDto extends PartialType(CreateUsersDto) {
     @IsInt()
     id: number;
 
+    
     @IsString()
     name: string;
 
     @IsString()
     lastName: string;
+
+    @IsInt()
+    email: string;
+
+    @IsString()
+    password: string;
 
     @IsDate()
     createdAt: Date;

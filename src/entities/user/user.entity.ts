@@ -12,6 +12,12 @@ export class UsersEntity{
     @Column()
     lastName: string;
 
+    @Column()
+    email: string;
+
+    @Column()
+    password: string;
+
     @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     createdAt: Date;
 }

@@ -10,6 +10,12 @@ export class CreateUsersDto {
 
     @IsString()
     lastName: string;
+    
+    @IsString()
+    email: string;
+
+    @IsString()
+    password: string;
 
     @IsDate()
     createdAt: Date;

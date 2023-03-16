@@ -12,13 +12,12 @@ export class UserService {
         private usersRepository: Repository<UsersEntity>,
     ) {}
 
-            //Get All User
     findAll(): Promise<UsersEntity[]> {
     return this.usersRepository.find({});
     }
-
-    findOne(id: number): Promise<UsersEntity>{
-        const x = this.usersRepository.findOneBy({id});
+    
+    findOne(query: object | any): Promise<UsersEntity>{
+        const x = this.usersRepository.findOneBy(query);
         return x;
     }
 
@@ -26,7 +25,9 @@ export class UserService {
         const user = new UsersEntity();
         user.name = _user.name
         user.lastName = _user.lastName
-        console.log("USERRR", user)
+        user.email = _user.email
+        user.password = _user.password
+        console.log("USER", user)
         return this.usersRepository.save(user);
     }
 

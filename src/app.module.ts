@@ -15,9 +15,14 @@ import { CustomerEntity } from './entities/customer/customer.entity';
 import { CustomerModule } from './entities/customer/customer.module';
 import { MenuEntity } from './entities/menu-categories/menu.entity';
 import { MenuModule } from './entities/menu-categories/menu.module';
+import { AuthModule } from './authentication/auth.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -28,9 +33,9 @@ import { MenuModule } from './entities/menu-categories/menu.module';
       entities: [UsersEntity, FoodsEntity, StoreEntity, OutletEntity, CustomerEntity, MenuEntity],
       synchronize: true,
       autoLoadEntities: true,
-    }),UserModule,FoodModule, StoreModule, OutletModule, CustomerModule, MenuModule
+    }),AuthModule, UserModule, FoodModule, StoreModule, OutletModule, CustomerModule, MenuModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService]
 })
 export class AppModule {}
