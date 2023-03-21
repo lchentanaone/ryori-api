@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, ManyToMany, JoinTable} from "typeorm";
+import { MenuCategoryEntity } from "../menu-categories/menu.entity";
 
 @Entity({name: "foods"})
 export class FoodsEntity{
@@ -11,6 +12,9 @@ export class FoodsEntity{
 
     @Column()
     price:string;
+
+    @ManyToMany(() => MenuCategoryEntity, (menu) => menu.food, { cascade: true, })
+    menu: MenuCategoryEntity[];
 
     @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     createdAt: Date;

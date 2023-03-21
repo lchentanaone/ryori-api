@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateMenuDto } from './create-menu.dto';
-import { IsString ,IsInt, IsDate } from '@nestjs/class-validator';
+import { IsString ,IsInt, IsDate,IsOptional } from '@nestjs/class-validator';
+import { FoodsEntity } from 'src/entities/food/food.entity';
 
 export class UpdateMenuDto extends PartialType(CreateMenuDto) {
     @IsInt()
@@ -12,6 +13,12 @@ export class UpdateMenuDto extends PartialType(CreateMenuDto) {
 
     @IsString()
     image: string;
+
+    @IsOptional()
+    food: FoodsEntity[];
+
+    @IsString()
+    foodId: string;
 
     @IsDate()
     createdAt: Date;

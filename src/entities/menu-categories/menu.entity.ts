@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn,CreateDateColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn,CreateDateColumn,ManyToMany, JoinTable } from "typeorm";
+import { FoodsEntity } from "../food/food.entity";
 
 @Entity({name: "menu"})
-export class MenuEntity{
+export class MenuCategoryEntity{
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -11,6 +12,13 @@ export class MenuEntity{
 
     @Column()
     image: string;
+
+    @Column()
+    foodId: string
+    
+    @ManyToMany(() => FoodsEntity, (food) => food.menu)
+    @JoinTable()
+    food: FoodsEntity[];
 
     @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     createdAt: Date;

@@ -13,7 +13,7 @@ import { OutletEntity } from './entities/outlet/outlet.entity';
 import { OutletModule } from './entities/outlet/outlet.module';
 import { CustomerEntity } from './entities/customer/customer.entity';
 import { CustomerModule } from './entities/customer/customer.module';
-import { MenuEntity } from './entities/menu-categories/menu.entity';
+import { MenuCategoryEntity } from './entities/menu-categories/menu.entity';
 import { MenuModule } from './entities/menu-categories/menu.module';
 import { AuthModule } from './authentication/auth.module';
 import { ConfigModule } from '@nestjs/config';
@@ -30,7 +30,7 @@ import { ConfigModule } from '@nestjs/config';
       username: 'root',
       password: 'password',
       database: 'ryori_api',
-      entities: [UsersEntity, FoodsEntity, StoreEntity, OutletEntity, CustomerEntity, MenuEntity],
+      entities: [UsersEntity, FoodsEntity, StoreEntity, OutletEntity, CustomerEntity, MenuCategoryEntity],
       synchronize: true,
       autoLoadEntities: true,
     }),AuthModule, UserModule, FoodModule, StoreModule, OutletModule, CustomerModule, MenuModule
