@@ -12,6 +12,6 @@ export class StoreEntity{
     @Column()
     storeName:string;
 
-    @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+    @CreateDateColumn()
     createdAt: Date;
 }

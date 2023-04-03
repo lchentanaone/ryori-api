@@ -28,7 +28,7 @@ import { ConfigModule } from '@nestjs/config';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'password',
+      password: '',
       database: 'ryori_api',
       entities: [UsersEntity, FoodsEntity, StoreEntity, OutletEntity, CustomerEntity, MenuCategoryEntity],
       synchronize: true,

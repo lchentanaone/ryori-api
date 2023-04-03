@@ -12,6 +12,6 @@ export class CustomerEntity{
     @Column()
     lastName: string;
 
-    @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+    @CreateDateColumn()
     createdAt: Date;
 }

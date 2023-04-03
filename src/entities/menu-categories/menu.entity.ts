@@ -20,6 +20,6 @@ export class MenuCategoryEntity{
     @JoinTable()
     food: FoodsEntity[];
 
-    @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+    @CreateDateColumn()
     createdAt: Date;
 }

@@ -16,6 +16,6 @@ export class FoodsEntity{
     @ManyToMany(() => MenuCategoryEntity, (menu) => menu.food, { cascade: true, })
     menu: MenuCategoryEntity[];
 
-    @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+    @CreateDateColumn()
     createdAt: Date;
 }

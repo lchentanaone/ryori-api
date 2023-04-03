@@ -12,6 +12,6 @@ export class OutletEntity{
     @Column()
     address: string;
 
-    @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+    @CreateDateColumn()
     createdAt: Date;
 }
