@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { IsString ,IsInt, IsDate } from '@nestjs/class-validator';
-import { FoodsEntity } from 'src/entities/food/food.entity';
+import { Foods } from 'src/entities/foods/food.entity';
 
 export class CreateMenuDto {
     @IsInt()
@@ -13,7 +13,7 @@ export class CreateMenuDto {
     image: string;
 
     @IsString()
-    food: FoodsEntity[];
+    food: Foods[];
 
     @IsString()
     foodId: string

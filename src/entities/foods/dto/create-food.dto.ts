@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { IsString ,IsInt, IsDate } from '@nestjs/class-validator';
-import { MenuCategoryEntity } from 'src/entities/menu-categories/menu.entity';
+import { IsString ,IsInt, IsDate,IsOptional } from '@nestjs/class-validator';
+import { MenuCategory } from 'src/entities/menu/menu.entity';
 
 export class CreateFoodDto {
     @IsInt()
@@ -12,7 +12,8 @@ export class CreateFoodDto {
     @IsString()
     price: string;
 
-    menu:MenuCategoryEntity[]
+    @IsOptional()
+    menu:string;
 
     @IsDate()
     createdAt: Date;

@@ -2,7 +2,7 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateFoodDto } from './create-food.dto';
 import { IsString ,IsInt, IsDate, IsOptional } from '@nestjs/class-validator';
-import { MenuCategoryEntity } from 'src/entities/menu-categories/menu.entity';
+import { MenuCategory } from 'src/entities/menu/menu.entity';
 
 export class UpdateFoodDto extends PartialType(CreateFoodDto) {
     @IsInt()
@@ -15,7 +15,7 @@ export class UpdateFoodDto extends PartialType(CreateFoodDto) {
     price: string;
 
     @IsOptional()
-    menu: MenuCategoryEntity[];
+    menu: string;
 
     @IsDate()
     createdAt: Date;

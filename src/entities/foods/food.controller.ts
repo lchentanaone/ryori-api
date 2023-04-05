@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Post, Get, Param, Body, Delete, Patch, Res } from "@nestjs/common";
-import { FoodService } from "../food/food.service";
+import { FoodService } from "../foods/food.service";
 import { CreateFoodDto } from './dto/create-food.dto';
 import { UpdateFoodDto } from "./dto/update-food.dto";
 
@@ -26,7 +26,7 @@ export class FoodController {
 
     @Patch(':id')
     update(@Param('id') id: string, @Body() updateFoodDto: UpdateFoodDto) {
-         this.foodService.update(+id, updateFoodDto);
+        //  this.foodService.update(+id, updateFoodDto);
          return "Updated"
     }
 

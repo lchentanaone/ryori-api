@@ -2,10 +2,10 @@
 import { Controller, Post, Get, Param, Body, Delete, Patch, Res, forwardRef, Inject } from "@nestjs/common";
 import { MenuService } from "./menu.service";
 import { CreateMenuDto } from './dto/create-menu.dto';
-import { UpdateMenuDto } from "../menu-categories/dto/update-menu.dto";
-import { FoodService } from "../food/food.service";
+import { UpdateMenuDto } from "../menu/dto/update-menu.dto";
+import { FoodService } from "../foods/food.service";
 import { Repository } from "typeorm";
-import { MenuCategoryEntity } from "./menu.entity";
+import { MenuCategory } from "./menu.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 
 @Controller('menu-category')
@@ -13,8 +13,8 @@ export class MenuController {
   constructor(private menuService: MenuService,
     @Inject(forwardRef(() => FoodService))
     private readonly foodService: FoodService,
-    @InjectRepository(MenuCategoryEntity)
-    private menuReposiry: Repository<MenuCategoryEntity>) {}
+    @InjectRepository(MenuCategory)
+    private menuReposiry: Repository<MenuCategory>) {}
 
     @Get()
     async fillAll() {
