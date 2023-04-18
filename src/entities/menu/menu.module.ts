@@ -10,7 +10,7 @@ import { MenuCategory } from "./menu.entity";
 import { Foods } from "../foods/food.entity";
 
 @Module({
-    imports:[TypeOrmModule.forFeature([MenuCategory, Foods])],
+    imports:[TypeOrmModule.forFeature([MenuCategory, Foods, FoodsRepository, MenuCategoryRepository])],
     controllers: [MenuController],
     providers: [MenuService, FoodService],
 })

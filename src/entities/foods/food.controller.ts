@@ -26,8 +26,8 @@ export class FoodController {
 
     @Patch(':id')
     update(@Param('id') id: string, @Body() updateFoodDto: UpdateFoodDto) {
-        //  this.foodService.update(+id, updateFoodDto);
-         return "Updated"
+      this.foodService.update(+id, updateFoodDto);
+      return "Updated"
     }
 
     @Delete(':id')

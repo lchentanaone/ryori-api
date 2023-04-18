@@ -13,10 +13,7 @@ export class CreateMenuDto {
     image: string;
 
     @IsString()
-    food: Foods[];
-
-    @IsString()
-    foodId: string
+    food: string
 
     @IsDate()
     createdAt: Date;

@@ -8,5 +8,5 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 @EntityRepository(Foods)
 export class FoodsRepository extends Repository<Foods> {
-  
+
 }

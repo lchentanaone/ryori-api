@@ -5,7 +5,6 @@ import { IsString ,IsInt, IsDate,IsOptional } from '@nestjs/class-validator';
 import { Foods } from 'src/entities/foods/food.entity';
 
 export class UpdateMenuDto extends PartialType(CreateMenuDto) {
-    @IsInt()
     id: number;
 
     @IsString()
@@ -15,10 +14,7 @@ export class UpdateMenuDto extends PartialType(CreateMenuDto) {
     image: string;
 
     @IsOptional()
-    food: Foods[];
-
-    @IsString()
-    foodId: string;
+    food: string
 
     @IsDate()
     createdAt: Date;

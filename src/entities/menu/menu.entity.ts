@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn,CreateDateColumn,ManyToMany, JoinTable } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn,CreateDateColumn,ManyToMany,   BaseEntity } from "typeorm";
 import { Foods } from "../foods/food.entity";
 
 @Entity({name: "menu"})
-export class MenuCategory{
+export class MenuCategory extends BaseEntity{
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -13,12 +13,8 @@ export class MenuCategory{
     @Column()
     image: string;
 
-    @Column()
-    foodId: string
-    
-    // @ManyToMany(() => Foods)
-    // @JoinTable()
-    // food: Foods[];
+    @ManyToMany(() => Foods, (food) => food.menu)
+    food: Foods[];
 
     @CreateDateColumn()
     createdAt: Date;

@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, ManyToMany, JoinTable} from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, ManyToMany, JoinTable, BaseEntity} from "typeorm";
 import { MenuCategory } from "../menu/menu.entity";
 
 @Entity({name: "foods"})
-export class Foods{
+export class Foods extends BaseEntity{
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -13,7 +13,7 @@ export class Foods{
     @Column()
     price:string;
 
-    @ManyToMany(() => MenuCategory)
+    @ManyToMany(() => MenuCategory, (menu) => menu.food, { cascade: true, })
     @JoinTable()
     menu: MenuCategory[];
 
